@@ -1,33 +1,24 @@
 
-/**
- * Escreva uma descrição da classe CadastroLivro aqui.
- * 
- * @author (seu nome) 
- * @version (um número da versão ou uma data)
- */
-public class CadastroLivro
-{
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
+// tem q arrumar saporra ta errado
 
-    /**
-     * Construtor para objetos da classe CadastroLivro
-     */
-    public CadastroLivro()
-    {
-        // inicializa variáveis de instância
-        x = 0;
-    }
+public class CadastroLivro{
+    private int index;
+    private Livro livro[]; // variavel de referencia []
 
-    /**
-     * Um exemplo de um método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   um exemplo de um parâmetro de método
-     * @return     a soma de x e y 
-     */
-    public int sampleMethod(int y)
-    {
-        // escreva seu código aqui
-        return x + y;
+    public CadastroLivro(int tam){
+        this.index = 0;
+        this.livro = new Livro[tam]; // instancia de objeto de vetor de livros
     }
+    
+    public boolean insereLivro(Livro l1){
+        if (livro.length < index){
+            livro[index] = l1;
+            index++;
+            return true;
+        } else{
+            return false;
+        }
+    }
+    
+    
 }

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=CadastroLivro
+comment1.params=tam
+comment1.target=CadastroLivro(int)
+comment2.params=l1
+comment2.target=boolean\ insereLivro(Livro)
+numComments=3
