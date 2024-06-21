@@ -1,33 +1,14 @@
 
 /**
- * Escreva uma descrição da classe Application aqui.
+ * Já pra deixar meio preparado o app.
  * 
- * @author (seu nome) 
+ * @author (Carlos Eduardo Griebeler, Matheus, Gustavo) 
  * @version (um número da versão ou uma data)
  */
-public class Application
-{
-    // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
+import java.util.Scanner;
 
-    /**
-     * Construtor para objetos da classe Application
-     */
-    public Application()
-    {
-        // inicializa variáveis de instância
-        x = 0;
-    }
-
-    /**
-     * Um exemplo de um método - substitua este comentário pelo seu próprio
-     * 
-     * @param  y   um exemplo de um parâmetro de método
-     * @return     a soma de x e y 
-     */
-    public int sampleMethod(int y)
-    {
-        // escreva seu código aqui
-        return x + y;
+public class Application {
+    public static void main (String args[]) {
+        Scanner input = new Scanner (System.in);
     }
 }
