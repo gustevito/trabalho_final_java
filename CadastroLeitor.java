@@ -5,15 +5,14 @@
  * @author (seu nome) 
  * @version (um número da versão ou uma data)
  */
-public class CadastroLeitor
-{
+public class CadastroLeitor {
     private int index;
     private Leitor leitor[];
     
     // Métodos construtor
-    public CadastroLeitor (int tam) {
+    public CadastroLeitor () {
         this.index = 0;
-        this.leitor = new Leitor[tam];
+        this.leitor = new Leitor[10];
     }
     
     public boolean insereLeitor (Leitor leitor) {
@@ -24,20 +23,17 @@ public class CadastroLeitor
         }
         return false;
     }
-    public boolean retiraLeitor (String nome) {
-        for (int i = 0; i < leitor.length; i++) {
-            if (leitor[i].getNome().equalsIgnoreCase(nome)) {
-                this.index--;
-                leitor[i] = null;
-                return true;
+    public Leitor buscaLeitorPeloNome (String nome) {
+        for (int i = 0; i < this.index; i++) {
+            if (this.leitor[i].getNome().equalsIgnoreCase(nome)) {
+                return this.leitor[i];
             }
         }
-        return false;
+        return null;
     }
-    
-    public void mostraLeitor () {
-        for (Leitor l1 : leitor) {
-            System.out.println (l1);
+    public void mostraLeitores () {
+        for (int i = 0; i < this.index; i++) {
+            System.out.println (this.leitor[i]);
         }
     }
 }
