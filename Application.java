@@ -31,6 +31,8 @@ public class Application {
                     System.out.println ("colecao = Mostra a quantidade total de livros disponíveis na Biblioteca;");
                     System.out.println ("exit = Desliga o programa");
                     
+
+                    // teste
             }
             System.out.println ("O que deseja fazer agora?");
             opcao = input.nextLine();
