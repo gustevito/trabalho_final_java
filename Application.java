@@ -30,6 +30,7 @@ public class Application {
                     System.out.println ("devolveLivro = Retorna um livro de um empréstimo;");
                     System.out.println ("colecao = Mostra a quantidade total de livros disponíveis na Biblioteca;");
                     System.out.println ("exit = Desliga o programa");
+                    
             }
             System.out.println ("O que deseja fazer agora?");
             opcao = input.nextLine();
