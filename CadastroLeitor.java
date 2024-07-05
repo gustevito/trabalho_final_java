@@ -58,4 +58,12 @@ public class CadastroLeitor {
             System.out.println (this.leitor[i]);
         }
     }
+    public boolean verificaMatricula (int matricula) {
+        for (int i = 0; i < this.index; i++) {
+            if (leitor[i].getMatricula() == matricula) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
