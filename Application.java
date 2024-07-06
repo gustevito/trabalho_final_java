@@ -69,8 +69,8 @@ public class Application {
                 nome = input.nextLine();
                 if(leitores.buscaLeitorPeloNome(nome) == null) {
                     System.out.println("leitor inesistente");
-                } else{
-                    leitores.buscaLeitorPeloNome(nome);
+                } else {
+                    System.out.println (leitores.buscaLeitorPeloNome(nome));
                 }
                 break;
             case "mostraleitor":
@@ -85,7 +85,7 @@ public class Application {
                 System.out.println ("Crie um código para o cadastro do livro: ");
                 int codigo = input.nextInt();
                 input.nextLine();
-                Livro novoLivro = new Livro(codigo,nomeLivro,exemplares);
+                Livro novoLivro = new Livro(codigo,exemplares,nomeLivro);
                 if(livros.adicionaLivro(novoLivro)){
                     System.out.println("livro adicionado com sucesso");
                     System.out.println (novoLivro);

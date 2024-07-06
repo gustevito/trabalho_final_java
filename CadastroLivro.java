@@ -19,6 +19,28 @@ public class CadastroLivro {
         }
         return false;
     }
+    public boolean apagaLivro (String nome) {
+        int pos = 0;
+        boolean achou = false;
+        
+        for (int i = 0; i < this.index; i++) {
+            if (this.livro[i].getNomeLivro().equalsIgnoreCase(nome)) {
+                pos = i;
+                achou = true;
+                break;
+            }
+        }
+        if (achou) {
+            for (int i = pos; i < this.livro.length-1; i++)
+            {
+                this.livro[i] = this.livro[i+1];
+            }
+            this.livro[this.livro.length-1] = null;
+            index--;
+            return true;
+        }
+        return false;
+    }
     // Método para buscar um livro pelo nome no vetor;
     public Livro buscaLivroPeloNome (String nome) {
         for (int i = 0; i < this.index; i++) {
