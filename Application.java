@@ -121,4 +121,109 @@ public class Application {
                 System.out.println ("Erro ao encontrar opção, por favor, verifique se o que foi inserido está correto.");
         }
     }
+    public static void options (String opcao, Scanner input, CadastroLivro livros, CadastroLeitor leitores) {
+        Random matricula = new Random();
+        switch (opcao) {
+            case "help":
+                System.out.println ("newReader = Create a new reader's account;");
+                System.out.println ("deleteReader = Delete a reader's account;");
+                System.out.println ("searchReader = Pesquisa uma conta de um leitor;");
+                System.out.println ("showReaders = Show all the reader's acocunts in the Library's system;");
+                System.out.println ("newBook = Register a new book in the Library's system;");
+                System.out.println ("deleteBook = Delete a book from the Library's collection;");
+                System.out.println ("searchBook = Search a book in the Library;");
+                System.out.println ("showBooks= Show all the books in the Library's collection;");
+                System.out.println ("getBook = Make a loan for a reader;");
+                System.out.println ("giveBook = Receive a book from a loan;");
+                System.out.println ("collection = Show how many books are available in the moment at the Library;");
+                System.out.println ("exit = Shut the program down.");
+                break;
+            case "newreader":
+                System.out.println ("Inform the new reader's name: ");
+                String nome = input.nextLine();
+                System.out.println ("Inform the new reader's email: ");
+                String email = input.nextLine();
+                int mat = matricula.nextInt(100);
+                do {
+                    mat = matricula.nextInt(100);
+                } while (leitores.verificaMatricula(mat));
+                Leitor novoLeitor = new Leitor (matricula.nextInt(100), nome, email);
+                if (leitores.insereLeitor(novoLeitor)) {
+                    System.out.println ("New account inserted succesfully!");
+                    System.out.println (novoLeitor);
+                } else {
+                    System.out.println ("ERROR. Erro ao cadastrar o leitor.");
+                }
+                break;
+            case "deletereader":
+                System.out.println ("Informe o nome do leitor que precisa ser apagado: ");
+                nome = input.nextLine();
+                if (leitores.retiraLeitor(nome)) {
+                    System.out.println ("Leitor cadastro cancelado com sucesso!");
+                } else {
+                    System.out.println ("Erro ao cancelar o cadastro do leitor.");
+                }
+                break;
+            case "searchreader":
+                System.out.println ("Informe o nome do leitor que deseja pesquisar: ");
+                nome = input.nextLine();
+                if(leitores.buscaLeitorPeloNome(nome) == null) {
+                    System.out.println("Leitor não encontrado.");
+                } else {
+                    System.out.println (leitores.buscaLeitorPeloNome(nome).toString());
+                }
+                break;
+            case "showreaders":
+                System.out.println ("Leitores cadastrados na Biblioteca: ");
+                leitores.mostraLeitores();
+                break;
+            case "newbook":
+                System.out.println ("Informe o nome do livro que deseja inserir: ");
+                String nomeLivro = input.nextLine();
+                System.out.println ("Informe a quantidade de exemplares que esse livro possui: ");
+                int exemplares = input.nextInt();
+                System.out.println ("Crie um código para o cadastro do livro: ");
+                int codigo = input.nextInt();
+                input.nextLine();
+                Livro novoLivro = new Livro(codigo,exemplares,nomeLivro);
+                if(livros.adicionaLivro(novoLivro)){
+                    System.out.println("livro adicionado com sucesso");
+                    System.out.println (novoLivro);
+                } else{
+                    System.out.println("não foi possível adicionar o livro");
+                }
+                break;
+            case "deletebook":
+                System.out.println ("Informe o nome do livro que precisa ser apagado: ");
+                nomeLivro = input.nextLine();
+                if (livros.apagaLivro(nomeLivro)) {
+                    System.out.println ("O livro cadastrado foi cancelado com sucesso!");
+                } else {
+                    System.out.println ("Erro ao cancelar o cadastro do livro.");
+                }
+                break;
+            case "showbooks":
+                System.out.println ("Coleção de livros da Biblioteca: ");
+                livros.mostraLivros();
+                break;
+            case "searchbook":
+                System.out.println ("Informe o nome do livro que deseja pesquisar: ");
+                nomeLivro = input.nextLine();
+                if(livros.buscaLivroPeloNome(nomeLivro) == null) {
+                    System.out.println("O livro \"" + nomeLivro + "\" não foi encontrado no sistema.");
+                } else {
+                    System.out.println("O livro foi encontrado\n" + livros.buscaLivroPeloNome(nomeLivro));
+                }
+                break;
+            case "getbook":
+                break;
+            case "givebook":
+                break;
+            case "collection":
+                System.out.println("A coleção da Biblioteca conta com cerca de " + livros.totalExemplares() + " livros.");
+                break;
+            default:
+                System.out.println ("Erro ao encontrar opção, por favor, verifique se o que foi inserido está correto.");
+        }
+    }
 }
