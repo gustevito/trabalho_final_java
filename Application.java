@@ -50,6 +50,7 @@ public class Application {
                 Leitor novoLeitor = new Leitor (matricula.nextInt(100), nome, email);
                 if (leitores.insereLeitor(novoLeitor)) {
                     System.out.println ("Leitor inserido com sucesso!");
+                    System.out.println (novoLeitor);
                 } else {
                     System.out.println ("Erro ao cadastrar o leitor.");
                 }
@@ -63,6 +64,61 @@ public class Application {
                     System.out.println ("Erro ao cancelar o cadastro do leitor.");
                 }
                 break;
+            case "pesquisaleitor":
+                System.out.println ("Informe o nome do leitor que deseja pesquisar: ");
+                nome = input.nextLine();
+                if(leitores.buscaLeitorPeloNome(nome) == null) {
+                    System.out.println("leitor inesistente");
+                } else{
+                    leitores.buscaLeitorPeloNome(nome);
+                }
+                break;
+            case "mostraleitor":
+                System.out.println ("Leitores cadastrados na Biblioteca: ");
+                leitores.mostraLeitores();
+                break;
+            case "novolivro":
+                System.out.println ("Informe o nome do livro que deseja inserir: ");
+                String nomeLivro = input.nextLine();
+                System.out.println ("Informe a quantidade de exemplares que esse livro possui: ");
+                int exemplares = input.nextInt();
+                System.out.println ("Crie um código para o cadastro do livro: ");
+                int codigo = input.nextInt();
+                input.nextLine();
+                Livro novoLivro = new Livro(codigo,nomeLivro,exemplares);
+                if(livros.adicionaLivro(novoLivro)){
+                    System.out.println("livro adicionado com sucesso");
+                    System.out.println (novoLivro);
+                } else{
+                    System.out.println("não foi possível adicionar o livro");
+                }
+                break;
+            case "apagalivro":
+                System.out.println ("Informe o nome do livro que precisa ser apagado: ");
+                nomeLivro = input.nextLine();
+                if (livros.apagaLivro(nomeLivro)) {
+                    System.out.println ("O livro cadastrado foi cancelado com sucesso!");
+                } else {
+                    System.out.println ("Erro ao cancelar o cadastro do livro.");
+                }
+                break;
+            case "mostralivros":
+                System.out.println ("Coleção de livros da Biblioteca: ");
+                livros.mostraLivros();
+            case "pesquisalivro":
+                System.out.println ("Informe o nome do livro que deseja pesquisar: ");
+                nomeLivro = input.nextLine();
+                if(livros.buscaLivroPeloNome(nomeLivro) == null) {
+                    System.out.println("O livro \"" + nomeLivro + "\" não foi encontrado no sistema.");
+                } else {
+                    System.out.println("O livro foi encontrado\n" + livros.buscaLivroPeloNome(nomeLivro));
+                }
+            case "retiralivro":
+            case "colecao":
+                System.out.println("A coleção da Biblioteca conta com cerca de " + livros.totalExemplares() + " livros.");
+                break;
+            default:
+                System.out.println ("Erro ao encontrar opção, por favor, verifique se o que foi inserido está correto.");
         }
     }
 }
