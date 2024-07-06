@@ -73,7 +73,7 @@ public class Application {
                     System.out.println (leitores.buscaLeitorPeloNome(nome));
                 }
                 break;
-            case "mostraleitor":
+            case "mostraleitores":
                 System.out.println ("Leitores cadastrados na Biblioteca: ");
                 leitores.mostraLeitores();
                 break;
