@@ -29,7 +29,7 @@ public class Application {
                 while (!opcao.equalsIgnoreCase("exit")) {
                     opcoes(opcao, input, livros, leitores);
                     System.out.println ("O que deseja fazer agora?");
-                    opcao = input.nextLine();
+                    opcao = input.nextLine().toLowerCase();
                 }
                 break;
             case 2:
@@ -40,7 +40,7 @@ public class Application {
                 while (!opcao.equalsIgnoreCase("exit")) {
                     options(opcao, input, livros, leitores);
                     System.out.println ("What do you want to do now?");
-                    opcao = input.nextLine();
+                    opcao = input.nextLine().toLowerCase();
                 }
                 break;
         }
