@@ -38,7 +38,7 @@ public class Application {
                 System.out.println ("(If you are a new employee, you can insert 'help' to visualize all the options available)");
                 opcao = input.nextLine().toLowerCase();
                 while (!opcao.equalsIgnoreCase("exit")) {
-                    opcoes(opcao, input, livros, leitores);
+                    options(opcao, input, livros, leitores);
                     System.out.println ("What do you want to do now?");
                     opcao = input.nextLine();
                 }
