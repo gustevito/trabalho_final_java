@@ -53,4 +53,11 @@ public class Livro{
         "\nCodigo: " + codigo +
         "\nExemplares: " + exemplares;
     } 
+
+    public String toStringENG(){
+        return "\nBook" +
+        "\nName: " + this.nomeLivro +
+        "\nCode: " + this.codigo +
+        "\nCopies: " + this.exemplares;
+    }
 }

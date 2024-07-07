@@ -53,4 +53,12 @@ public class Leitor{
         "\nE-mail: " + email +
         "\nLivro Retirado: " + livroRetirado;
     }
+
+    public String toStringENG () {
+        return ("\nReader" + 
+        "\nRegistration: " + this.matricula +
+        "\nName: " + this.nome +
+        "\nE-mail: " + this.email +
+        "\nBook lent: " + this.livroRetirado);
+    }
 }

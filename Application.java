@@ -72,7 +72,7 @@ public class Application {
                 do {
                     mat = matricula.nextInt(100);
                 } while (leitores.verificaMatricula(mat));
-                Leitor novoLeitor = new Leitor (matricula.nextInt(100), nome, email);
+                Leitor novoLeitor = new Leitor (mat, nome, email);
                 if (leitores.insereLeitor(novoLeitor)) {
                     System.out.println ("Nova conta criada com sucesso!");
                     System.out.println (novoLeitor);
@@ -199,10 +199,10 @@ public class Application {
                 do {
                     mat = matricula.nextInt(100);
                 } while (leitores.verificaMatricula(mat));
-                Leitor novoLeitor = new Leitor (matricula.nextInt(100), nome, email);
+                Leitor novoLeitor = new Leitor (mat, nome, email);
                 if (leitores.insereLeitor(novoLeitor)) {
                     System.out.println ("New account inserted successfully!");
-                    System.out.println (novoLeitor);
+                    System.out.println (novoLeitor.toStringENG());
                 } else {
                     System.out.println ("ERROR. System wasn't able to create a new account.");
                 }
@@ -222,12 +222,12 @@ public class Application {
                 if(leitores.buscaLeitorPeloNome(nome) == null) {
                     System.out.println("Reader not found.");
                 } else {
-                    System.out.println (leitores.buscaLeitorPeloNome(nome).toString());
+                    System.out.println (leitores.buscaLeitorPeloNome(nome).toStringENG());
                 }
                 break;
             case "showreaders":
                 System.out.println ("Readers registered in the Library: ");
-                leitores.mostraLeitores();
+                leitores.showReaders();
                 break;
             case "newbook":
                 System.out.println ("Inform the name of the new book: ");
@@ -240,7 +240,7 @@ public class Application {
                 Livro novoLivro = new Livro(codigo,exemplares,nomeLivro);
                 if(livros.adicionaLivro(novoLivro)){
                     System.out.println("Book was successfully added.");
-                    System.out.println (novoLivro);
+                    System.out.println (novoLivro.toStringENG());
                 } else{
                     System.out.println("System was not able to add the book.");
                 }
@@ -256,7 +256,7 @@ public class Application {
                 break;
             case "showbooks":
                 System.out.println ("Library's book colletion: ");
-                livros.mostraLivros();
+                livros.showBooks();
                 break;
             case "searchbook":
                 System.out.println ("Inform the name of the book that needs to be searched: ");

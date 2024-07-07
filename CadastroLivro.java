@@ -64,4 +64,9 @@ public class CadastroLivro {
             System.out.println (this.livro[i]);
         }
     }
+    public void showBooks () {
+        for (int i = 0; i < this.index; i++) {
+            System.out.println (this.livro[i].toStringENG());
+        }
+    }
 }
