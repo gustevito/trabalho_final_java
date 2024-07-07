@@ -113,7 +113,29 @@ public class Application {
                 } else {
                     System.out.println("O livro foi encontrado\n" + livros.buscaLivroPeloNome(nomeLivro));
                 }
-            case "retiralivro":
+                case "retiralivro":
+                System.out.println ("Informe o nome do leitor que deseja retirar um livro: ");
+                nome = input.nextLine();
+                System.out.println ("Informe o nome do livro que o leitor deseja retirar: ");
+                nomeLivro = input.nextLine();
+                if (leitores.buscaLeitorPeloNome(nome).getLivroRetirado() != null) {
+                    System.out.println ("O leitor já tem um livro em empréstimo com a biblioteca.\nCaso ele deseje retirar outro livro, deve devolver o outro antes.");
+                } else {
+                    leitores.buscaLeitorPeloNome(nome).setLivroRetirado(livros.buscaLivroPeloNome(nomeLivro));
+                    livros.buscaLivroPeloNome(nomeLivro).retirada();
+                    System.out.println ("Livro foi retirado com sucesso!");
+                }
+                break;
+            case "devolvelivro":
+                System.out.println ("Informe o nome do leitor que deseja devolver um livro: ");
+                nome = input.nextLine();
+                if (leitores.buscaLeitorPeloNome(nome).getLivroRetirado() == null) {
+                    System.out.println ("O leitor não tem nenhum empréstimo na Biblioteca.");
+                } else {
+                    livros.buscaLivroPeloNome(leitores.buscaLeitorPeloNome(nome).getLivroRetirado().getNomeLivro()).devolucao();
+                    leitores.buscaLeitorPeloNome(nome).setLivroRetirado(null);
+                    System.out.println ("O livro foi devolvido com sucesso!");
+                }
             case "colecao":
                 System.out.println("A coleção da Biblioteca conta com cerca de " + livros.totalExemplares() + " livros.");
                 break;

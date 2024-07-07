@@ -34,6 +34,19 @@ public class Livro{
     public void setNomeLivro(String nomeLivro){
         this.nomeLivro = nomeLivro;
     }
+
+    public void retirada () {
+        if (this.exemplares > 0) {
+            System.out.println ("Livro retirado com sucesso!");
+            exemplares--;    
+        } else {
+            System.out.println ("O livro desejado está indisponível.");
+        }
+    }   
+    public void devolucao () {
+        exemplares++;
+        System.out.println ("Livro devolvido com sucesso!");
+    }
     
     // toString
     public String toString(){
