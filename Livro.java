@@ -35,17 +35,15 @@ public class Livro{
         this.nomeLivro = nomeLivro;
     }
 
-    public void retirada () {
+    public boolean retirada () {
         if (this.exemplares > 0) {
-            System.out.println ("Livro retirado com sucesso!");
-            exemplares--;    
-        } else {
-            System.out.println ("O livro desejado está indisponível.");
+            this.exemplares--;
+            return true;
         }
-    }   
+        return false;
+    }
     public void devolucao () {
-        exemplares++;
-        System.out.println ("Livro devolvido com sucesso!");
+        this.exemplares++;
     }
     
     // toString
